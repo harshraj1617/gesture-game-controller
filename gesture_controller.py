@@ -3,7 +3,7 @@ import mediapipe as mp
 from pynput.keyboard import Key, Controller
 from collections import deque
 
-# Minimal, production-ready controller for three gestures:
+#this is beta version ths dosent include combo attacks made for fun (cuz i enjoyed the movie robo boxing so much)havefun!
 # - Punch  -> tap 'x'
 # - Jump   -> tap space
 # - Turn   -> hold 'a' (left) / 'd' (right)
@@ -17,7 +17,7 @@ SMOOTH_N       = 5           # moving window size for smoothing
 PUNCH_COOLDOWN = 10          # frames
 JUMP_COOLDOWN  = 20          # frames
 
-# ---------- Setup ----------
+#used mediapipe for body points detection and open cv to take live input
 mp_pose = mp.solutions.pose
 pose = mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5)
 mp_draw = mp.solutions.drawing_utils
@@ -52,9 +52,7 @@ def release_turn_keys():
     try:
         keyboard.release('d')
     except: pass
-
-print("Gesture Controller (Punch, Jump, Turn)")
-print("ESC to exit. Make sure the game window is focused.")
+print("ESC to exit. ")
 
 try:
     while True:
